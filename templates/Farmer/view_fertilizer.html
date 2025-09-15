@@ -1,0 +1,106 @@
+{% extends 'Farmer/farmer index.html' %}
+{% block body %}
+<head>
+    <meta charset="utf-8">
+    <title>Fertilizer Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #212529;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        th {
+            background-color:#212529;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #212529;
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        a {
+            color:##212529;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color:  #45a049;
+        }
+
+        .add-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #388da8;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    <table border="0">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Details</th>
+{#            <th>Actions</th>#}
+        </tr>
+        {% for i in val %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td><img src="{{ i.image.url }}" width="100" height="100" alt="{{ i.name }} image"/></td>
+            <td>{{ i.details }}</td>
+            <td>{{ i.Price }}</td>
+{#            <td>#}
+{#                <a href="/expert_edit_fertilizer/{{ i.id }}">Edit</a><br>#}
+{#                <a href="/delete_fertilizer/{{ i.id }}">Delete</a>#}
+{#            </td>#}
+        </tr>
+        {% endfor %}
+{#        <tr>#}
+{#            <td colspan="5" style="text-align:center;">#}
+{#                <a href="expert_add_fertilizer" class="add-btn">Add New</a>#}
+{#            </td>#}
+{#        </tr>#}
+    </table>
+</form>
+</body>
+{% endblock %}

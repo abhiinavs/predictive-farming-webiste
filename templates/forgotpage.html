@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - AgroPulse</title>
+    <!-- Custom Styles -->
+    <link href="../static/login/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../static/login/css/fontawesome-all.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #00695c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .w3l-login-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 400px;
+            backdrop-filter: blur(12px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .w3l-login-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        .w3l-login-form h2 {
+            margin-bottom: 25px;
+            color: #004d40;
+            font-size: 26px;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .w3l-form-group {
+            margin-bottom: 20px;
+            text-align: left;
+            animation: slideIn 1s ease-in-out;
+        }
+        .w3l-form-group label {
+            font-weight: 600;
+            color: #004d40;
+            font-size: 14px;
+        }
+        .w3l-form-group .group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .w3l-form-group .group i {
+            margin: 0 10px;
+            color: #00796b;
+        }
+        .w3l-form-group .group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            outline: none;
+        }
+        .w3l-form-group .group input:focus {
+            background: #fff;
+        }
+        .w3l-form-group .group:focus-within {
+            border: 1px solid #00796b;
+            transform: scale(1.02);
+        }
+        button[type="submit"] {
+            background: #00796b;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            animation: fadeIn 2s ease-in-out;
+        }
+        button[type="submit"]:hover {
+            background: #004d40;
+            transform: translateY(-3px);
+        }
+        .w3l-register-p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #004d40;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        .w3l-register-p a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .w3l-register-p a:hover {
+            color: #004d40;
+        }
+        footer {
+            font-size: 12px;
+            color: #004d40;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3l-login-form">
+        <h2>Forgot Password</h2>
+        <form action="/forgot_password" method="POST">
+            <div class="w3l-form-group">
+                <label>Email:</label>
+                <div class="group">
+                    <i class="fas fa-user"></i>
+                    <input type="email" class="form-control" name="textfield" placeholder="Enter your email here" required="required" />
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <p class="w3l-register-p">Don't have an account?<a href="/farmer_farmer_register" class="register"> Register</a></p>
+    </div>
+    <footer>
+        <p class="copyright-agileinfo"> &copy; 2025 AgroPulse. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+    </footer>
+</body>
+</html>

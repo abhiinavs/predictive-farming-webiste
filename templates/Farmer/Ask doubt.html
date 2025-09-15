@@ -1,0 +1,43 @@
+{% extends 'Farmer/farmer index.html' %}
+{% block body %}
+
+<!-- Include Bootstrap CSS for styling -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body class="container my-5">
+  <h2 class="text-center mb-4">Ask a Doubt</h2>
+
+  <!-- Doubt Form -->
+  <form id="form1" name="form1" method="post" action="/farmer_send_doubt_post#a">
+    <div class="mb-3 row justify-content-center">
+{#      <label for="expertSelect" class="col-sm-2 col-form-label">Select Expert</label>#}
+{#      <div class="col-sm-6">#}
+{#        <select id="expertSelect" name="name" class="form-select">#}
+{#          {% for i in data %}#}
+{#            <option value="{{ i.id }}">#}
+{#              {{ i.FirstName }} {{ i.LastName }}#}
+{#            </option>#}
+{#          {% endfor %}#}
+{#        </select>#}
+{#      </div>#}
+    </div>
+
+    <div class="mb-3 row justify-content-center">
+      <label for="doubtInput" class="col-sm-2 col-form-label">Doubt</label>
+      <div class="col-sm-6">
+        <input type="text" id="doubtInput" name="textfield" class="form-control" placeholder="Enter your doubt">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-6 text-center">
+        <input type="submit" name="Submit" value="Send" class="btn btn-primary w-50">
+      </div>
+    </div>
+  </form>
+</body>
+
+<!-- Include Bootstrap JS for interactivity -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

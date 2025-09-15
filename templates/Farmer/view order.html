@@ -1,0 +1,54 @@
+{% extends 'Farmer/farmer index.html' %}
+{% block body %}
+
+<!-- Include Bootstrap CSS for a modern design -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body class="container my-5">
+  <h2 class="text-center mb-4">Manage Orders</h2>
+
+  {% if val|length == 0 %}
+    <p class="text-center text-muted">No orders available</p>
+  {% else %}
+    <!-- Orders Table -->
+    <table class="table table-bordered table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" class="text-white">User Name</th>
+          <th scope="col" class="text-white">Amount</th>
+          <th scope="col" class="text-white">Date</th>
+          <th scope="col" class="text-white">Status</th>
+          <th scope="col" class="text-white">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-light text-white">
+        {% for i in val %}
+        <tr>
+          <td>{{ i.user_id.FirstName }}</td>
+          <td>{{ i.total_amount }}</td>
+          <td>{{ i.date }}</td>
+          <td>
+            {% if i.status == "pending" %}
+              <span class="badge bg-warning text-dark">{{ i.status }}</span>
+            {% elif i.status == "accepted" %}
+              <span class="badge bg-success text-white">{{ i.status }}</span>
+            {% else %}
+              <span class="badge bg-danger text-white">{{ i.status }}</span>
+            {% endif %}
+          </td>
+          <td>
+            <a href="/farmer_view_order_more/{{ i.id }}#a" class="btn btn-info btn-sm">View More</a>
+            <a href="/approve_order/{{ i.id }}#a" class="btn btn-success btn-sm">Accept</a>
+            <a href="/reject_order/{{ i.id }}#a" class="btn btn-danger btn-sm">Reject</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</body>
+
+<!-- Include Bootstrap JS for interactive components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

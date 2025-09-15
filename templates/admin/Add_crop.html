@@ -1,0 +1,58 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+<!-- Include Bootstrap CSS for styling -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body class="container my-5">
+  <h2 class="text-center mb-4">Manage Crops</h2>
+
+  <form id="form1" name="form1" method="post" action="/admin_add_crop_search" class="mb-4">
+    {% csrf_token %}
+    <div class="row g-2">
+      <div class="col-md-9">
+        <input type="text" name="textfield" class="form-control" placeholder="Search Crops" />
+      </div>
+      <div class="col-md-3">
+        <button type="submit" name="Submit" class="btn btn-primary w-100">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Details</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in data %}
+        <tr>
+          <td>{{ i.name }}</td>
+          <td>${{ i.price }}</td>
+          <td>{{ i.stock }}</td>
+          <td>{{ i.details }}</td>
+          <td class="text-center">
+            <a href="/delete_crop/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="admin_ADD_new_CROPS" class="btn btn-success">Add New Crop</a>
+  </div>
+
+</body>
+
+<!-- Include Bootstrap JS and Popper.js (for Bootstrap functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

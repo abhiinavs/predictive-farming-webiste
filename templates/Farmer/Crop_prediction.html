@@ -1,0 +1,133 @@
+{% extends 'Farmer/farmer index.html' %}
+{% block body %}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Prediction</title>
+</head>
+    <style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0c0b09;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table td {
+    padding: 10px;
+    vertical-align: middle;
+  }
+
+  table td:first-child {
+    text-align: right;
+    font-weight: bold;
+    color: #d3d3d3;
+  }
+
+  table td:last-child {
+    text-align: left;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  input[type="text"]:focus {
+    border-color: #66afe9;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #218838;
+  }
+
+  .form-title {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+</style>
+
+<body>
+<form id="form1" name="form1" method="post" action="crop_prediction_post">
+  <div class="form-title">Predict Crop</div>
+  <table width="200" border="0">
+    <tr>
+      <td>Nitrogen</td>
+      <td><input type="text" name="textfield" /></td>
+    </tr>
+    <tr>
+      <td>Phosphorus</td>
+      <td><input type="text" name="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>Potassium</td>
+      <td><input type="text" name="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>Temperature</td>
+      <td><input type="text" name="textfield4" /></td>
+    </tr>
+
+    <tr>
+      <td>Humidity</td>
+      <td><input type="text" name="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>PH</td>
+      <td><input type="text" name="textfield6" /></td>
+    </tr>
+    <tr>
+      <td>Rainfall</td>
+      <td><input type="text" name="textfield7" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="submit" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="color: white; text-align: center;">Result:  {{ res }}</td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

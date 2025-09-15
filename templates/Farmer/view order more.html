@@ -1,0 +1,105 @@
+{% extends 'Farmer/farmer index.html' %}
+{% block body %}
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Product List</title>
+  <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef5f9; /* Light background for better contrast */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+
+  form {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th {
+    background-color: #4CAF50; /* Green header */
+    color: black;
+    text-align: left;
+    padding: 12px;
+    font-weight: bold;
+  }
+
+  td {
+      color: black;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color */
+  }
+
+  tr:hover {
+    background-color: #e6f7ff; /* Highlight row on hover */
+  }
+
+  th[colspan="2"] {
+    text-align: center;
+    background-color: #4CAF50;
+    color: #000000;
+    font-size: 18px;
+  }
+
+  .no-orders {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+
+<body>
+  <form id="form1" name="form1" method="post" action="/farmer_view_order_more#a">
+    {% if kk|length == 0 %}
+      <p class="no-orders">No orders available</p>
+    {% else %}
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">Product Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in kk %}
+          <tr>
+            <td>Product</td>
+            <td>{{ i.PRODUCT.name }}</td>
+          </tr>
+          <tr>
+            <td>Quantity</td>
+            <td>{{ i.quantity }}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>{{ amt }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </form>
+</body>
+{% endblock %}
